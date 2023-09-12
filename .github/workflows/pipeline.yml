@@ -1,0 +1,16 @@
+name: Deployment Pipleine
+
+on:
+  push:
+    branches: - master
+
+
+jobs:
+  simple_deployment_pipeline:
+    runs_on : ubuntu-20.04
+    steps : actions/checkout@v3
+    steps : actions/setup-node@v3
+    with:
+      node-version: '16'
+    - run : npm install
+    - run : npm run eslint
